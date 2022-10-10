@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+
+%
+%Margin - 1 inch on all sides
+%
+\usepackage[letterpaper]{geometry}
+\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.5in, right=1.0in}
+
+%
+%Doublespacing
+%
+\usepackage{setspace}
+\doublespacing
+
+% PARAGRAPH SPACING
+\usepackage{parskip}
+
+% EQUATIONS
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% FIGURES
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+%
+%Rotating tables (e.g. sideways when too long)
+%
+\usepackage{rotating}
+
+\usepackage[hypertexnames=true]{hyperref}
+
+%
+%Fancy-header package to modify header/page numbering (insert last name)
+%
+\usepackage{fancyhdr}
+
+\fancypagestyle{beginning}{
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{body}{
+\fancyhf{}
+\fancyhead[R]{\thepage}
+}
+% \lfoot{} 
+% \cfoot{} 
+% \rfoot{} 
+
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+%To make sure we actually have header 0.5in away from top edge
+%12pt is one-sixth of an inch. Subtract this from 0.5in to get headsep value
+\setlength\headsep{0.333in}
+
+%
+%Works cited environment
+%(to start, use \begin{workscited...}, each entry preceded by \bibent)
+% - from Ryan Alcock's MLA style file
+%
+\newcommand{\bibent}{\noindent \hangindent 40pt}
+\newenvironment{workscited}{\newpage \begin{center} Works Cited \end{center}}{\newpage }
+
+% TITLE STUFF
+\usepackage{titlesec}
+
+\titleformat*{\section}{\phantomsection\normalfont\fontsize{12}{15}\center}
+\titleformat*{\subsection}{\phantomsection\normalfont\fontsize{12}{15}\center}
+
+\renewcommand\contentsname{TABLE OF CONTENTS}
+
+
+%
+%Begin document
+%
+\begin{document}
+\pagenumbering{roman}
+\pagestyle{beginning}
+\renewcommand{\bfseries}{\relax}
+\begin{center}
+%%%%First page name, class, etc
+%%%%Title
+$title$
+
+\vspace{36pt}
+
+by
+
+\vspace{12pt}
+
+$author$
+
+\vspace{36pt}
+
+$assignment$
+
+\vspace{36pt}
+
+In
+
+\vspace{12pt}
+
+$department$
+
+\pagebreak
+
+
+\end{center}
+
+
+\begin{flushleft}
+	
+\hypertarget{ABSTRACT}{%
+\section*{ABSTRACT}\label{ABSTRACT}}
+\addcontentsline{toc}{section}{ABSTRACT}
+
+$abstract$
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\pagestyle{body}
+
+\pagenumbering{arabic}
+
+%%%%Begin body of paper here
+
+$body$
+
+\end{flushleft}
+\end{document}
+\}
